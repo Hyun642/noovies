@@ -5,6 +5,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import {Ionicons} from "@expo/vector-icons";
 import { useAssets } from 'expo-asset';
+import { NavigationContainer } from '@react-navigation/native';
+import Tabs from './navigation/Tabs';
 
 // 스플래시 스크린 유지 메소드
 SplashScreen.preventAutoHideAsync();
@@ -18,12 +20,8 @@ export default function App() {
         SplashScreen.hideAsync()
       }
 
-        return (
-          <View
-            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>SplashScreen Demo! 👋</Text>
-            <Entypo name="rocket" size={30} />
-          </View>
+      return (
+          <NavigationContainer><Tabs/></NavigationContainer>
         );
       
 }
