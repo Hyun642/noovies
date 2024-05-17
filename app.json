@@ -1,15 +1,12 @@
 {
-  "expo": {
-    "name": "noovies",
-    "slug": "noovies",
-    "version": "1.0.0",
-    "splash": {
-      "image": "./assets/HelloWorld.png",
-      "backgroundColor": "black"
-    },
-    "plugins": [
-      "expo-font",
-      "expo-asset"
-    ]
-  }
+     "expo": {
+          "name": "noovies",
+          "slug": "noovies",
+          "version": "1.0.0",
+          "splash": {
+               "image": "./assets/HelloWorld.png",
+               "backgroundColor": "black"
+          },
+          "plugins": ["expo-font", "expo-asset"]
+     }
 }
