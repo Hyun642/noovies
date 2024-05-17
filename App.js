@@ -1,21 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import Entypo from '@expo/vector-icons/Entypo';
+import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
+import {Ionicons} from "@expo/vector-icons";
+import { useAssets } from 'expo-asset';
+
+// 스플래시 스크린 유지 메소드
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+      //api 호출
+      const [assets] = useAssets([require("./assets/HelloWorld.png")])
+      const [loaded] = Font.useFonts(Ionicons.font)
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+      if (assets && loaded){
+        SplashScreen.hideAsync()
+      }
+
+        return (
+          <View
+            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>SplashScreen Demo! 👋</Text>
+            <Entypo name="rocket" size={30} />
+          </View>
+        );
+      
+}
