@@ -5,6 +5,7 @@ import Search from "../screens/Search";
 import Tv from "../screens/Tv";
 import { useColorScheme } from "react-native";
 import { LIGTH_GREY, YELLOW_COLOR } from "../color";
+import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,11 +23,45 @@ const Tabs = () => {
                          backgroundColor: isDark ? "black" : "white",
                     },
                     headerTitleStyle: { color: isDark ? "white" : "black" },
+                    tabBarLabelStyle: {
+                         fontSize: 13,
+                         fontWeight: "600",
+                         marginTop: -10,
+                    },
                }}
           >
-               <Tab.Screen name="Movies" component={Movies} />
-               <Tab.Screen name="Tv" component={Tv} />
-               <Tab.Screen name="Search" component={Search} />
+               <Tab.Screen
+                    name="Movies"
+                    component={Movies}
+                    options={{
+                         tabBarIcon: ({ focused, color, size }) => {
+                              console.log(focused, color, size);
+                              return <Ionicons name={focused ? "film" : "film-outline"} color={color} size={size} />;
+                         },
+                    }}
+               />
+               <Tab.Screen
+                    name="Tv"
+                    component={Tv}
+                    options={{
+                         tabBarIcon: ({ focused, color, size }) => {
+                              console.log(focused, color, size);
+                              return <Ionicons name="tv" color={color} size={size} />;
+                         },
+                    }}
+               />
+               <Tab.Screen
+                    name="Search"
+                    component={Search}
+                    options={{
+                         tabBarIcon: ({ focused, color, size }) => {
+                              console.log(focused, color, size);
+                              return (
+                                   <Ionicons name={focused ? "search" : "search-outline"} color={color} size={size} />
+                              );
+                         },
+                    }}
+               />
           </Tab.Navigator>
      );
 };
