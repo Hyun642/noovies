@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useAssets } from "expo-asset";
 import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
+import Stack from "./navigation/Stack";
 
 // 스플래시 스크린 유지 메소드
 SplashScreen.preventAutoHideAsync();
@@ -20,7 +21,7 @@ export default function App() {
 
      return (
           <NavigationContainer>
-               <Tabs />
+               <Stack />
           </NavigationContainer>
      );
 }
